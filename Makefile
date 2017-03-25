@@ -1,12 +1,11 @@
 NAME		= do_op
 
-SRC			= main.c \
-			do_op.c
+SRC			= src/main.c \
+			src/do_op.c
 
-INCLDIR		= ../include \
-			do_op.h
+INCLDIR		= include \
 
-LIBDIR		= ../lib/libmy.a
+LIBDIR		= lib
 
 OBJ			= $(SRC:.c=.o)
 
