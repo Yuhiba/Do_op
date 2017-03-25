@@ -5,6 +5,8 @@ SRC			= main.c \
 
 INCLDIR		= ../include/
 
+LIBDIR		= ../lib/
+
 OBJ			= $(SRC:.c=.o)
 
 CC			= cc
@@ -12,6 +14,7 @@ CC			= cc
 RM			= rm -f
 
 CFLAGS		+= -I $(INCLDIR)
+CFLAGS		+= -L. $(LIBDIR)
 CFLAGS		+= -Wextra -Wall -Werror
 
 all:		$(NAME)
