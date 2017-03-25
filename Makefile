@@ -1,20 +1,20 @@
-NAME		= do-op
+NAME		= do_op
 
 SRC			= main.c \
-			do-op.c
+			do_op.c
 
-INCLDIR		= ../include/
+INCLDIR		= ../include \
+			do_op.h
 
-LIBDIR		= ../lib/
+LIBDIR		= ../lib/libmy.a
 
 OBJ			= $(SRC:.c=.o)
 
-CC			= cc
+CC			= gcc
 
 RM			= rm -f
 
 CFLAGS		+= -I $(INCLDIR)
-CFLAGS		+= -L. $(LIBDIR)
 CFLAGS		+= -Wextra -Wall -Werror
 
 all:		$(NAME)
