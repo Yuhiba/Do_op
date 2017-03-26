@@ -3,8 +3,7 @@ NAME		= do_op
 SRC			= src/main.c \
 			src/do_op.c
 
-INCLDIR		= include/my.h \
-			include/do_op.h
+INCLUDE		= include/
 
 LIBDIR		= lib/
 
@@ -15,13 +14,13 @@ CC			= cc
 RM			= rm -f
 
 LDFLAGS		+= -L $(LIBDIR)
-CFLAGS		+= -I $(INCLDIR)
-CFLAGS		+= -Wextra -Wall -Werror
+CFLAGS		+= -I $(INCLDIR) -Wextra -Wall -Werror
+CFLAGS		+= -I lib/include/
 
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
+			$(CC) -o $@ $^
 
 clean:
 			$(RM) $(OBJ)
