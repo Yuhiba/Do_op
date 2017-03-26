@@ -5,7 +5,8 @@ SRC			= src/main.c \
 
 INCLUDE		= include/
 
-LIBDIR		= lib/
+LIBDIR		= lib/src/
+
 
 OBJ			= $(SRC:.c=.o)
 
@@ -20,6 +21,7 @@ CFLAGS		+= -I lib/include
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
+			make -C $(LIBDIR)
 			$(CC) -o $@ $^
 
 clean:
