@@ -2,6 +2,7 @@
 
 #include "do_op.h"
 
+int arithmetic(char *, char *, char*);
 int main(int argc, char *argv[])
 {
 	char *value1;
