@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-#include "my.h"
 #include "do_op.h"
 
 int main(int argc, char *argv[])
@@ -8,9 +7,7 @@ int main(int argc, char *argv[])
 	char *value1;
 	char *signe;
 	char *value2;
-	int i;
 
-	i = 0;
 	value1 = NULL;
 	signe = NULL;
 	value2 = NULL;
