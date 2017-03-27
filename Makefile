@@ -5,8 +5,12 @@ SRC			= src/main.c \
 
 INCLUDE		= include/
 
-LIBDIR		= lib/src/
+LIBDIR		= lib/
 
+LIBSRC 		= lib/src/my_getnbr.c \
+			lib/src/my_putstr.c \
+			lib/src/my_putchar.c \
+			lib/src/my_put_nbr.c
 
 OBJ			= $(SRC:.c=.o)
 
@@ -21,8 +25,8 @@ CFLAGS		+= -I lib/include
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			make -C $(LIBDIR)
-			$(CC) -o $@ $^
+			make -C $(LIBDIR) Makefile re
+			$(CC) -o $@ $^ $(LIBSRC)
 
 clean:
 			$(RM) $(OBJ)
