@@ -3,7 +3,7 @@ NAME		= do_op
 SRC			= src/main.c \
 			src/do_op.c
 
-INCLUDE		= include/do_op.h
+INCLUDE		= include/
 
 LIBDIR		= lib/
 
@@ -14,8 +14,8 @@ CC			= cc
 RM			= rm -f
 
 LDFLAGS		+= -L $(LIBDIR)
-CFLAGS		+= -I $(INCLDIR) -Wextra -Wall -Werror
-CFLAGS		+= -I lib/include/
+CFLAGS		+= -I $(INCLUDE) -Wextra -Wall -Werror
+CFLAGS		+= -I lib/include
 
 all:		$(NAME)
 
