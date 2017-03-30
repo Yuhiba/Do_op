@@ -3,7 +3,7 @@ NAME		= do_op
 SRC			= src/main.c \
 			src/do_op.c
 
-INCLUDE		= include/
+INCLUDE		= include/do_op.h
 
 LIBDIR		= lib/
 
