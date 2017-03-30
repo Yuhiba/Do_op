@@ -1,17 +1,17 @@
 NAME		= do_op
 
-SRC			= src/main.c \
-			src/do_op.c
+SRC		= src/main.c \
+		src/do_op.c
 
-INCLDIR		= include \
+INCLDIR		= include/my.h 
 
 LIBDIR		= lib
 
-OBJ			= $(SRC:.c=.o)
+OBJ		= $(SRC:.c=.o)
 
-CC			= gcc
+CC		= gcc
 
-RM			= rm -f
+RM		= rm -f
 
 CFLAGS		+= -I $(INCLDIR)
 CFLAGS		+= -Wextra -Wall -Werror
@@ -19,14 +19,14 @@ CFLAGS		+= -Wextra -Wall -Werror
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			$(CC) -o $@ $^
+		$(CC) -o $@ $^
 
 clean:
-			$(RM) $(OBJ)
+		$(RM) $(OBJ)
 
 fclean:		clean
-			$(RM) $(NAME)
+		$(RM) $(NAME)
 
-re:			fclean all
+re:		fclean all
 
 .PHONY:		all clean fclean re
