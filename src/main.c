@@ -22,6 +22,6 @@ int main(int argc, char *argv[])
 		value2 = argv[3];
 	}
 	arithmetic(value1, signe, value2);
-	printf("%d\n", arithmetic(value1, signe, value2));
+	//int (*)(char *, char *, char *);
 	return 0;
 }
