@@ -1,14 +1,11 @@
 NAME		= do_op
 
-SRC		= src/main.c \
-		src/do_op.c
+SRC			= src/main.c \
+			src/do_op.c
 
-<<<<<<< HEAD
 INCLDIR		= include/my.h \
 			include/do_op.h
-=======
-INCLDIR		= include/my.h 
->>>>>>> 03f75ff999c616ea85abc187e2c2452191a9c2f9
+
 
 LIBDIR		= lib/my_getnbr.c \
 			lib/my_is_prime.c \
@@ -57,13 +54,11 @@ CFLAGS		+= -Wextra -Wall -Werror
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-<<<<<<< HEAD
+
 			$(CC) -o $@ $^
 			ar rc $@ $<
 			ranlib $@
-=======
-		$(CC) -o $@ $^
->>>>>>> 03f75ff999c616ea85abc187e2c2452191a9c2f9
+
 
 clean:
 		$(RM) $(OBJ)
