@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "do_op.h"
-//#include "my.h"
+#include "my.h"
 
 int my_getnbr(char *);
 int my_putstr(char *);

@@ -1,10 +1,14 @@
 NAME		= do_op
 
-SRC			= src/main.c \
-			src/do_op.c
+SRC		= src/main.c \
+		src/do_op.c
 
+<<<<<<< HEAD
 INCLDIR		= include/my.h \
 			include/do_op.h
+=======
+INCLDIR		= include/my.h 
+>>>>>>> 03f75ff999c616ea85abc187e2c2452191a9c2f9
 
 LIBDIR		= lib/my_getnbr.c \
 			lib/my_is_prime.c \
@@ -41,11 +45,11 @@ LIBDIR		= lib/my_getnbr.c \
 			lib/my_strupcase.c \
 			lib/my_swap.c
 
-OBJ			= $(SRC:.c=.o)
+OBJ		= $(SRC:.c=.o)
 
-CC			= gcc
+CC		= gcc
 
-RM			= rm -f
+RM		= rm -f
 
 CFLAGS		+= -I $(INCLDIR) -L. $(LIBDIR)
 CFLAGS		+= -Wextra -Wall -Werror
@@ -53,16 +57,20 @@ CFLAGS		+= -Wextra -Wall -Werror
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
+<<<<<<< HEAD
 			$(CC) -o $@ $^
 			ar rc $@ $<
 			ranlib $@
+=======
+		$(CC) -o $@ $^
+>>>>>>> 03f75ff999c616ea85abc187e2c2452191a9c2f9
 
 clean:
-			$(RM) $(OBJ)
+		$(RM) $(OBJ)
 
 fclean:		clean
-			$(RM) $(NAME)
+		$(RM) $(NAME)
 
-re:			fclean all
+re:		fclean all
 
 .PHONY:		all clean fclean re
