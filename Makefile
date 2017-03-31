@@ -20,15 +20,18 @@ CFLAGS      += -I lib/include
 all:        $(NAME)
 
 $(NAME):    $(OBJ)
-			make -C $(LIBDIR) clean fclean re
+			make -C $(LIBDIR)
 			$(CC) -o $@ $^  -L $(LIBDIR) -lmy
 
 clean:
+			make -C $(LIBDIR) clean
 			$(RM) $(OBJ)
 
 fclean: 	clean
+			make -C $(LIBDIR) fclean
 			$(RM) $(NAME)
 
-re:			fclean all
+re:         fclean all
+			make -C $(LIBDIR) re
 
 .PHONY:		all clean fclean re
