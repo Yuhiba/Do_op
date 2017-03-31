@@ -1,32 +1,27 @@
-NAME		= do_op
+NAME        = do_op
 
-SRC			= src/main.c \
-			src/do_op.c
+SRC	        = src/main.c \
+	        src/do_op.c
 
-INCLUDE		= include/
+INCLUDE	    = include/
 
-LIBDIR		= lib/
+LIBDIR      = lib/
 
-LIBSRC 		= lib/src/my_getnbr.c \
-			lib/src/my_putstr.c \
-			lib/src/my_putchar.c \
-			lib/src/my_put_nbr.c
+OBJ         = $(SRC:.c=.o)
 
-OBJ			= $(SRC:.c=.o)
+CC          = cc
 
-CC			= cc
+RM          = rm -f
 
-RM			= rm -f
+LDFLAGS	    += -L $(LIBDIR)
+CFLAGS      += -I $(INCLUDE) -Wextra -Wall -Werror
+CFLAGS      += -I lib/include
 
-LDFLAGS		+= -L $(LIBDIR)
-CFLAGS		+= -I $(INCLUDE) -Wextra -Wall -Werror
-CFLAGS		+= -I lib/include
+all:        $(NAME)
 
-all:		$(NAME)
-
-$(NAME):	$(OBJ)
-			make -C $(LIBDIR) Makefile re
-			$(CC) -o $@ $^ $(LIBSRC)
+$(NAME):    $(OBJ)
+			make -C $(LIBDIR) clean fclean re
+			$(CC) -o $@ $^  -L $(LIBDIR) -lmy
 
 clean:
 			$(RM) $(OBJ)
