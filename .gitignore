@@ -1,0 +1,5 @@
+*.o
+*.gch
+.DS_Store
+libmy.a
+do_op

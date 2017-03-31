@@ -17,21 +17,21 @@ LDFLAGS	    += -L $(LIBDIR)
 CFLAGS      += -I $(INCLUDE) -Wextra -Wall -Werror
 CFLAGS      += -I lib/include
 
-all:        $(NAME)
+all:		$(NAME)
 
-$(NAME):    $(OBJ)
-            make -C $(LIBDIR)
-            $(CC) -o $@ $^  -L $(LIBDIR) -lmy
+$(NAME):	$(OBJ)
+			make -C $(LIBDIR)
+			$(CC) -o $@ $^  -L $(LIBDIR) -lmy
 
 clean:
-            make -C $(LIBDIR) clean
-            $(RM) $(OBJ)
+			make -C $(LIBDIR) clean
+			$(RM) $(OBJ)
 
 fclean: 	clean
-            make -C $(LIBDIR) fclean
-            $(RM) $(NAME)
+			make -C $(LIBDIR) fclean
+			$(RM) $(NAME)
 
-re:         fclean all
-            make -C $(LIBDIR) re
+re:			fclean all
+			make -C $(LIBDIR) re
 
-.PHONY:		all clean fclean re
+.PHONY:	    all clean fclean re

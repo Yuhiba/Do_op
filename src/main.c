@@ -1,8 +1,8 @@
 #include <stdio.h>
 
+#include "my.h"
 #include "do_op.h"
 
-int arithmetic(char *, char *, char*);
 int main(int argc, char *argv[])
 {
 	char *value1;
@@ -20,6 +20,6 @@ int main(int argc, char *argv[])
 		value2 = argv[3];
 	}
 	arithmetic(value1, signe, value2);
-	//int (*)(char *, char *, char *);
+	//print_arithmetic(arithmetic(value1, signe, value2));
 	return 0;
 }

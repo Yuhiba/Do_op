@@ -5,7 +5,6 @@
 #include "my.h"
 
 int my_getnbr(char *);
-int my_putstr(char *);
 
 int arithmetic(char *value1, char *signe, char *value2)
 {
@@ -38,7 +37,7 @@ int arithmetic(char *value1, char *signe, char *value2)
 	{
 		if (my_getnbr(value2) == 0)
 		{
-			my_putstr("stop : modulo by Zéro!\n");
+			printf("stop : modulo by Zéro!\n");
 			return 0;
 		}
 		result = my_getnbr(value1) % my_getnbr(value2);
@@ -48,7 +47,7 @@ int arithmetic(char *value1, char *signe, char *value2)
 		return 0;
 }
 
-//int print_arithmetic(int*(char *, char *, char *))
+//int print_arithmetic(arithmetic(char *, char *, char *))
 //{
 //	my_put_nbr(result);
 //	my_putchar('\n');
