@@ -1,7 +1,8 @@
 NAME        = do_op
 
 SRC         = src/main.c \
-            src/do_op.c
+            src/do_op.c \
+            src/display.c
 
 INCLUDE	    = include/
 
