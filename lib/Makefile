@@ -47,7 +47,7 @@ CFLAGS		+= -I $(INCLDIR) -Wextra -Wall -Werror
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			ar rc $@ $<
+			ar rc $@ $^
 			ranlib $@
 
 clean:

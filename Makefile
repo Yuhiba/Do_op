@@ -14,7 +14,7 @@ CC          = cc
 RM          = rm -f
 
 LDFLAGS	    += -L $(LIBDIR)
-CFLAGS      += -I $(INCLUDE) -Wextra -Wall -Werror
+CFLAGS      += -I $(INCLUDE) -Wextra -Wall
 CFLAGS      += -I lib/include
 
 all:		$(NAME)

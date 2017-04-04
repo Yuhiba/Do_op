@@ -5,21 +5,11 @@
 
 int main(int argc, char *argv[])
 {
-	char *value1;
-	char *signe;
-	char *value2;
+	int (*ptr_display)(char *, char *, char *);
 
-	value1 = NULL;
-	signe = NULL;
-	value2 = NULL;
-
-	if (argc == 3)
-	{
-		value1 = argv[1];
-		signe = argv[2];
-		value2 = argv[3];
-	}
-	arithmetic(value1, signe, value2);
-	//print_arithmetic(arithmetic(value1, signe, value2));
+	if (argc == 0)
+		my_putstr("error!");
+	ptr_display = display(argv[1], argv[2], argv[3]);
+	(*ptr_display)(argv[1], argv[2], argv[3]);
 	return 0;
 }

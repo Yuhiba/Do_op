@@ -4,55 +4,18 @@
 #include "do_op.h"
 #include "my.h"
 
-int my_getnbr(char *);
-
-int arithmetic(char *value1, char *signe, char *value2)
+int (*display(char *value1, char *signe, char *value2))(char *, char *, char *)
 {
-	int result;
-	int i;
-
-	result = 0;
-	i = 0;
-	if (signe[i] == '+')
-	{
-		result = my_getnbr(value1) + my_getnbr(value2);
-		return result;
-	}
-	else if (signe[i] == '-')
-	{
-		result = my_getnbr(value1) - my_getnbr(value2);
-		return result;
-	}
-	else if (signe[i] == '/')
-	{
-		if (my_getnbr(value2) == 0)
-		{
-			printf("Stop : Divistion by Zéro\n");
-			return 0;
-		}
-		result = my_getnbr(value1) / my_getnbr(value2);
-		return result;
-	}
-	else if (signe[i] == '%')
-	{
-		if (my_getnbr(value2) == 0)
-		{
-			printf("stop : modulo by Zéro!\n");
-			return 0;
-		}
-		result = my_getnbr(value1) % my_getnbr(value2);
-		return result;
-	}
+	if (signe[0] == '+')
+		return &arithmetic_add;
+	else if (signe[0] == '-')
+		return &arithmetic_sous;
+	else if (signe[0] == '/')
+		return &arithmetic_div;
 	else
-		return 0;
+		return &arithmetic_modulo;
+	return 0;
 }
-
-//int print_arithmetic(arithmetic(char *, char *, char *))
-//{
-//	my_put_nbr(result);
-//	my_putchar('\n');
-//	return 0;
-//}
 
 int arithmetic_add(char *value1, char *signe, char *value2)
 {
@@ -66,10 +29,10 @@ int arithmetic_add(char *value1, char *signe, char *value2)
 		result = my_getnbr(value1) + my_getnbr(value2);
 		i += 1;
 	}
-	return result;
+	return my_put_nbr(result);
 }
 
-int arithmetic_sou(char *value1, char *signe, char *value2)
+int arithmetic_sous(char *value1, char *signe, char *value2)
 {
 	int result;
 	int i;
@@ -81,7 +44,7 @@ int arithmetic_sou(char *value1, char *signe, char *value2)
 		result = my_getnbr(value1) - my_getnbr(value2);
 		i += 1;
 	}
-	return result;
+	return my_put_nbr(result);
 }
 
 int arithmetic_div(char *value1, char *signe, char *value2)
@@ -93,18 +56,15 @@ int arithmetic_div(char *value1, char *signe, char *value2)
 	i = 0;
 	while (signe[i] == '/' && signe[i] != '\0')
 	{
-		if (my_getnbr(value2) == '0')
-		{
-			printf("Stop : Division by Zéro!");
-			return 0;
-		}
+		if (value2[i] == '0')
+			return my_putstr("Stop : Division by Zéro!");
 		result = my_getnbr(value1) / my_getnbr(value2);
 		i += 1;
 	}
-	return result;
+	return my_put_nbr(result);
 }
 
-int arithmetic_modu(char *value1, char *signe, char *value2)
+int arithmetic_modulo(char *value1, char *signe, char *value2)
 {
 	int result;
 	int i;
@@ -114,12 +74,9 @@ int arithmetic_modu(char *value1, char *signe, char *value2)
 	while (signe[i] == '%' && signe[i] != '\0')
 	{
 		if (value2[i] == '0')
-		{
-			printf("Stop : modulo by Zéro!");
-			return 0;
-		}
+			return my_putstr("Stop : modulo by Zéro!");
 		result = my_getnbr(value1) % my_getnbr(value2);
 		i += 1;
 	}
-	return result;
+	return my_put_nbr(result);
 }
